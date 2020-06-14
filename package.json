@@ -1,0 +1,49 @@
+{
+  "name": "clean-home",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist && rimraf distTest",
+    "build:ts": "tsc -p tsconfig.json && tsc -p tsconfig.test.json",
+    "build": "npm run clean && npm run build:ts",
+    "lint": "eslint --ext .ts src",
+    "test": "npm run build && node distTest/test/test.js",
+    "pack": "npm run build && npm pack"
+  },
+  "keywords": [
+    "Clean Home",
+    "Smart Home",
+    "home automation"
+  ],
+  "author": {
+    "name": "Christopher Holomek",
+    "email": "holomekc.github@gmail.com"
+  },
+  "homepage": "https://github.com/holomekc/clean-home",
+  "license": "MIT",
+  "description": "Allows communication to Philips devices via CoAP",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holomekc/clean-home"
+  },
+  "bugs": {
+    "url": "https://github.com/holomekc/clean-home/issues"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.3",
+    "node-coap-client": "^1.0.4",
+    "typescript": "^3.6.3",
+    "uuid": "^3.3.3",
+    "fast-xml-parser": "^3.16.0",
+    "aes-cross": "^1.0.9"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.8",
+    "@types/uuid": "^3.4.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.0.1",
+    "rimraf": "^3.0.0"
+  }
+}
